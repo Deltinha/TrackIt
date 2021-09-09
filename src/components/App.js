@@ -1,13 +1,15 @@
 import '../reset.css';
 import '../font-import.css';
-import LogIn from "../routes/login/Login";
+import LogIn from '../routes/login/LogIn';
 import * as S from './AppStyled';
+import SignUp from '../routes/cadastro/SignUp';
 
 
 export default function App() {
   return (
     <S.App>
-        <LogIn />
+        {/* <LogIn /> */}
+        <SignUp />
     </S.App>
   );
 }
