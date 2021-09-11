@@ -15,6 +15,7 @@ export default function App() {
         {/* <SignUp /> */}
 
         <Navbar />
+        
         <Habits />
     </S.App>
   );

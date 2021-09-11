@@ -6,7 +6,8 @@ const BlueButton = styled.button`
     border: none;
     color: white;
     font-weight: 400;
-    
+    padding: 0;
+    cursor: pointer;
 
     width: ${({size}) => {
         if (size === 'large') {
@@ -34,7 +35,6 @@ const BlueButton = styled.button`
         }
         return '15.98px';
     }};
-
     
 
 `;
