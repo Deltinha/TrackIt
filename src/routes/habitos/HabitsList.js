@@ -1,11 +1,16 @@
-import Habit from './Habit';
+import HabitCard from './HabitCard';
 import * as S from './HabitsListStyled';
 import NewHabit from './NewHabit';
 
 export default function HabitsList(){
     return (
         <S.HabitsList>
-            <Habit />
+            <HabitCard />
+            <HabitCard />
+            <HabitCard />
+            <HabitCard />
+            <HabitCard />
+            <HabitCard />
         </S.HabitsList>
     );
 }

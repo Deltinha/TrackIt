@@ -4,7 +4,8 @@ import LogIn from '../routes/login/LogIn';
 import * as S from './AppStyled';
 import SignUp from '../routes/cadastro/SignUp';
 import Habits from '../routes/habitos/Habits';
-import Navbar from './Navbar';
+import TopNavbar from './TopNavbar';
+import BottomNavigation from './shared/BottomNavigation';
 
 
 export default function App() {
@@ -14,9 +15,11 @@ export default function App() {
 
         {/* <SignUp /> */}
 
-        <Navbar />
+        <TopNavbar />
         
         <Habits />
+
+        <BottomNavigation />
     </S.App>
   );
 }

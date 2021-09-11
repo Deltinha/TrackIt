@@ -1,11 +1,11 @@
-import * as S from './NavbarStyled';
+import * as S from './TopNavbarStyled';
 import TrackItWoodMark from '../assets/trackit-woodmark.png';
 
-export default function Navbar (){
+export default function TopNavbar (){
     return (
-        <S.Navbar>
+        <S.TopNavbar>
             <img src={TrackItWoodMark} />
             <img className='profile-picture' src={TrackItWoodMark} />
-        </S.Navbar> 
+        </S.TopNavbar> 
     );
 }

@@ -1,16 +1,15 @@
-import * as S from './HabitStyled';
+import * as S from './HabitCardStyled';
 import {GoTrashcan} from 'react-icons/go';
 import WeekCheckboxes from '../../components/shared/WeekCheckboxes';
-import { DayCheckbox } from '../../components/shared/WeekCheckboxesStyled';
 
-export default function Habit() {
+export default function HabitCard() {
     return (
-        <S.Habit>
+        <S.HabitCard>
             <span>Ler 1 capítulo de livro</span>
 
             <GoTrashcan />
 
             <WeekCheckboxes />
-        </S.Habit>
+        </S.HabitCard>
     );
 }

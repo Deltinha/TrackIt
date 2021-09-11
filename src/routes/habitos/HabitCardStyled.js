@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 
-const Habit = styled.div`
+export const HabitCard = styled.div`
     background-color: white;
     border-radius: 5px;
     position: relative;
     padding: 13px 15px 15px 15px;
+    margin-bottom: 10px;
 
     & > svg {
         position: absolute;
@@ -23,13 +24,11 @@ const Habit = styled.div`
     }
 `;
 
-const Week = styled.ul`
+export const Week = styled.ul`
     display: flex;
 `;
 
-const Day = styled.li`
+export const Day = styled.li`
     width: 30px;
     height: 30px;
 `;
-
-export {Habit, Day, Week};
