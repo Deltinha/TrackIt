@@ -6,6 +6,7 @@ import { BlueButton } from '../../components/shared/BlueButton';
 import { Link, useHistory } from 'react-router-dom';
 import { postSignUp } from '../../services/trackit-api';
 import { useEffect, useState } from 'react';
+import Loader from 'react-loader-spinner';
 
 export default function SignUpRoute(){
 
@@ -14,8 +15,10 @@ export default function SignUpRoute(){
     const [name,setName] = useState('');
     const [image,setImage] = useState('');
     const history = useHistory();
+    const [disabledInputs, setDisabledInputs] = useState(false);
 
     function registerUser(){
+        setDisabledInputs(true);
 
         const body = {
             email,
@@ -26,7 +29,10 @@ export default function SignUpRoute(){
 
         postSignUp(body)
             .then(()=>history.push('/'))
-            .catch(()=>alert('Erro na criação da conta'))
+            .catch(()=>{
+                setDisabledInputs(false);
+                alert('Erro na criação da conta');
+            })
     }
 
     return (
@@ -40,7 +46,8 @@ export default function SignUpRoute(){
                 name="email"
                 placeholder='email'
                 onChange={(e)=>setEmail(e.target.value)}
-                value={email}/>
+                value={email}
+                disabled={disabledInputs}/>
 
                 <TextInput 
                 type="password" 
@@ -48,7 +55,8 @@ export default function SignUpRoute(){
                 name="password"
                 placeholder='senha'
                 onChange={(e)=>setPassword(e.target.value)}
-                value={password}/>
+                value={password}
+                disabled={disabledInputs}/>
 
                 <TextInput 
                 type="text" 
@@ -56,7 +64,8 @@ export default function SignUpRoute(){
                 name="username"
                 placeholder='nome'
                 onChange={(e)=>setName(e.target.value)}
-                value={name}/>
+                value={name}
+                disabled={disabledInputs}/>
 
                 <TextInput 
                 type="text" 
@@ -64,13 +73,22 @@ export default function SignUpRoute(){
                 name="profile-picture"
                 placeholder='foto'
                 onChange={(e)=>setImage(e.target.value)}
-                value={image}/>
+                value={image}
+                disabled={disabledInputs}/>
             </LogInForm>
-
-            <BlueButton 
+            
+            <BlueButton
+            disabled={disabledInputs}
             size='large'
-            onClick={registerUser}>
-                Cadastrar
+            onClick={disabledInputs ? undefined : registerUser}>
+                {disabledInputs ? 
+                    <Loader
+                    type="ThreeDots"
+                    color="#fff"
+                    height={13}/>
+                    :
+                    'Cadastrar'
+                }
             </BlueButton>
 
             <Link to='/'>
