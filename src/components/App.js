@@ -7,12 +7,16 @@ import TopNavbar from './TopNavbar';
 import BottomNavigation from './shared/BottomNavigation';
 import HabitsRoute from '../routes/habitos/HabitsRoute';
 import TodayRoute from '../routes/hoje/TodayRoute';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 
 export default function App() {
+  
+  const [backgroundColor, setBackgroundColor] = useState('#fff');
+  console.log(backgroundColor);
   return (
-    <S.App>
+    <S.App backgroundColor={backgroundColor}>
         <BrowserRouter>
           <Switch>
           

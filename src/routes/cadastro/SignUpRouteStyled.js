@@ -5,8 +5,9 @@ export const SignUpRoute = styled.div`
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: 68px;
-    left: 0;
+    padding-top: 68px;
+    box-sizing: border-box;
+    height: 100%;
     
     & > a {
         color: #52B6FF;

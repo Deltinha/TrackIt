@@ -4,9 +4,9 @@ export const LogInRoute = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    top: 68px;
-    left: 0;
+    padding-top: 68px;
+    box-sizing: border-box;
+    height: 100%;
     
     & > a {
         
