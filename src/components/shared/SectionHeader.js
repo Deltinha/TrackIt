@@ -2,7 +2,7 @@
 import { BlueButton } from './BlueButton';
 import * as S from './SectionHeaderStyled';
 
-export default function SectionHeader({children:sectionTitle, concludedPct}){
+export default function SectionHeader({children:sectionTitle, concludedPct, setCreatingHabit}){
     
     function concludedText(){
         if (concludedPct > 0) {
@@ -14,9 +14,6 @@ export default function SectionHeader({children:sectionTitle, concludedPct}){
         return '';
     }
 
-    //usar useparams para renderizar o botão dinamicamente
-
-
     return (
         <S.SectionHeader>
             <S.TextContainer>
@@ -25,7 +22,9 @@ export default function SectionHeader({children:sectionTitle, concludedPct}){
                     {concludedText()}
                 </S.HabitsConcludedText>
             </S.TextContainer>
-            <BlueButton size='small'>+</BlueButton>
+            <BlueButton 
+            size='small'
+            onClick={()=>setCreatingHabit(true)}>+</BlueButton>
         </S.SectionHeader>
     );
 }

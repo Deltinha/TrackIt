@@ -11,3 +11,18 @@ export function postLogIn(body){
     const promise = axios.post(`${BASE_URL}/auth/login`,body);
     return promise;
 }
+
+export function postHabit(body, config){
+    const promise = axios.post(`${BASE_URL}/habits`, body, config);
+    return promise;
+}
+
+export function getHabits(config){
+    const promise = axios.get(`${BASE_URL}/habits`, config);
+    return promise;
+}
+
+export function deleteHabit(habitID, config){
+    const promise = axios.delete(`${BASE_URL}/habits/${habitID}`, config);
+    return promise;
+}

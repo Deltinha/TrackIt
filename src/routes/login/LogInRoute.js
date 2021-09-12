@@ -4,9 +4,10 @@ import { BlueButton } from '../../components/shared/BlueButton';
 import { LogInForm } from '../../components/shared/Form';
 import * as S from './LogInRouteStyled';
 import { TextInput } from '../../components/shared/TextInput';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { postLogIn } from '../../services/trackit-api';
 import Loader from 'react-loader-spinner';
+import { UserContext } from '../../contexts/UserContext';
 
 
 export default function LogInRoute(){
@@ -15,6 +16,8 @@ export default function LogInRoute(){
     const [password,setPassword] = useState('');
     const history = useHistory();
     const [disabledInputs, setDisabledInputs] = useState(false);
+    const {setProfileImage} = useContext(UserContext);
+    const {setToken} = useContext(UserContext);
 
     const body = {
         email,
@@ -26,7 +29,14 @@ export default function LogInRoute(){
 
         postLogIn(body)
             .then((res)=>{
-                console.log(res.data)
+                setProfileImage(res.data.image);
+                setToken(
+                    {
+                        headers: {
+                            Authorization: `Bearer ${res.data.token}`
+                        }
+                    }
+                );
                 history.push('/hoje')
             })
             .catch(()=>{

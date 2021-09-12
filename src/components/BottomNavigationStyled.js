@@ -12,14 +12,19 @@ export const BottomNavigation = styled.div`
     padding-left: 31px;
     padding-right: 31px;
 
+
+    & > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
+    }
 
-    & > span {
-        color #52B6FF;
+    & a {
+        color: #52B6FF;
         font-size: 18px;
         cursor: pointer;
+        text-decoration: none;
     }
 `;
 export const ProgressBarContainer = styled.div`

@@ -1,15 +1,26 @@
 import * as S from './HabitStyled';
 import {GoTrashcan} from 'react-icons/go';
 import WeekCheckboxes from '../../components/shared/WeekCheckboxes';
+import { deleteHabit } from '../../services/trackit-api';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
-export default function Habit() {
+export default function Habit({name, habitDays, habitID, refreshList}) {
+    const {token} = useContext(UserContext)
+    
     return (
         <S.Habit>
-            <span>Ler 1 capítulo de livro</span>
+            <span>{name}</span>
 
-            <GoTrashcan />
+            <GoTrashcan onClick={()=>{
+                deleteHabit(habitID, token)
+                .then(refreshList)
+                .catch(()=>alert('Erro'));
+            }}/>
 
-            <WeekCheckboxes />
+            <WeekCheckboxes 
+            disabled={true}
+            habitDays={habitDays}/>
         </S.Habit>
     );
 }
