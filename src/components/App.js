@@ -10,11 +10,13 @@ import TodayRoute from '../routes/hoje/TodayRoute';
 import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
+import { getHabits } from '../services/trackit-api';
 
 
 export default function App() {
   const [profileImage, setProfileImage] = useState('');
   const [token, setToken] = useState('');
+  
 
   return (
     <S.App>

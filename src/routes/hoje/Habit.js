@@ -1,23 +1,22 @@
 import * as S from './HabitStyled';
 import {GoCheck} from 'react-icons/go';
 
-export default function Habit(){
-    const concluded = true
+export default function Habit({habitData}){
     return (
         <S.Habit>
             <div className='habit-info'>
                 <span className='habit-name'>
-                    Ler 1 capítulo de livro
+                    {habitData.name}
                 </span>
                 <span className='current-streak'>
-                    Sequência atual: 4 dias
+                    Sequência atual: {habitData.currentSequence} dias
                 </span>
                 <span className='record-streak'>
-                    Seu recorde: 5 dias
+                    Seu recorde: {habitData.highestSequence} dias
                 </span>
             </div>
             <S.Checkbox className='checkbox'
-            concluded={concluded}>
+            concluded={habitData.done}>
                 <GoCheck />
             </S.Checkbox>
             

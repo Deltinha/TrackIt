@@ -8,6 +8,7 @@ export const Habit = styled.div`
     background-color: white;
     border-radius: 5px;
     padding: 13px;
+    margin-bottom: 10px;
 
     & .habit-info{
         display: flex;

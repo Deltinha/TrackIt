@@ -1,25 +1,27 @@
 import * as S from './HabitsRouteStyled';
 import SectionHeader from "../../components/shared/SectionHeader";
-import HabitsList from './HabitsList';
 import NewHabit from './NewHabit';
 import Habit from './Habit';
 import { useContext, useState } from 'react';
+import { useEffect } from 'react/cjs/react.development';
+import { getAllHabits } from '../../services/trackit-api';
 import { UserContext } from '../../contexts/UserContext';
-import { getHabits } from '../../services/trackit-api';
 
 export default function HabitsRoute (){
     let concludedPct = undefined;
+    
+    const [creatingHabit, setCreatingHabit] = useState(false);
     const [habits, setHabits] = useState([]);
     const {token} = useContext(UserContext);
-    const [creatingHabit, setCreatingHabit] = useState(false);
 
     function refreshList(){
-            getHabits(token)
-            .then((res)=>{
-                setHabits(res.data);
-            })
-            .catch(()=>console.log('erro'));
-    }
+      getAllHabits(token)
+      .then((res)=>{
+          setHabits(res.data);
+      });
+  }
+
+    useEffect(()=>refreshList(),[]);
 
     concludedPct = 22
     return (
@@ -39,9 +41,16 @@ export default function HabitsRoute (){
                 <></>
             }
 
-            <HabitsList
-            habits={habits}
-            refreshList={refreshList} />
+        <S.HabitsList>
+            {habits.map((habit)=>(
+                <Habit
+                refreshList={refreshList}
+                key={habit.id}
+                name={habit.name}
+                habitDays={habit.days}
+                habitID={habit.id}/>
+            ))}
+        </S.HabitsList>
 
             <S.Notice>
                 {

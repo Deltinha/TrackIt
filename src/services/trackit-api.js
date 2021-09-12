@@ -17,12 +17,17 @@ export function postHabit(body, config){
     return promise;
 }
 
-export function getHabits(config){
+export function getAllHabits(config){
     const promise = axios.get(`${BASE_URL}/habits`, config);
     return promise;
 }
 
 export function deleteHabit(habitID, config){
     const promise = axios.delete(`${BASE_URL}/habits/${habitID}`, config);
+    return promise;
+}
+
+export function getTodayHabits(config){
+    const promise = axios.get(`${BASE_URL}/habits/today`, config);
     return promise;
 }

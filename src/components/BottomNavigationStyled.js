@@ -12,7 +12,6 @@ export const BottomNavigation = styled.div`
     padding-left: 31px;
     padding-right: 31px;
 
-
     & > div{
     display: flex;
     justify-content: space-between;
