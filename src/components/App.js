@@ -1,25 +1,43 @@
 import '../reset.css';
 import '../font-import.css';
-import LogIn from '../routes/login/LogIn';
+import LogInRoute from '../routes/login/LogInRoute';
 import * as S from './AppStyled';
-import SignUp from '../routes/cadastro/SignUp';
-import Habits from '../routes/habitos/Habits';
+import SignUpRoute from '../routes/cadastro/SignUpRoute';
 import TopNavbar from './TopNavbar';
 import BottomNavigation from './shared/BottomNavigation';
+import HabitsRoute from '../routes/habitos/HabitsRoute';
+import TodayRoute from '../routes/hoje/TodayRoute';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 export default function App() {
   return (
     <S.App>
-        {/* <LogIn /> */}
+        <BrowserRouter>
+          <Switch>
+          
+            <Route path='/' exact>
+              <LogInRoute />
+            </Route>
 
-        {/* <SignUp /> */}
+            <Route path='/cadastro' exact>
+              <SignUpRoute />
+            </Route>
 
-        <TopNavbar />
-        
-        <Habits />
+            <>
+              <TopNavbar />
+              <BottomNavigation />
+    
+              <Route path='/habitos' exact>
+                <HabitsRoute />
+              </Route>
 
-        <BottomNavigation />
+              <Route path='/hoje' exact>
+                <TodayRoute />
+              </Route>
+            </>
+          </Switch>
+        </BrowserRouter>
     </S.App>
   );
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Habits = styled.section`
+export const HabitsRoute = styled.section`
     
     margin-top: 70px;
     margin-bottom: 120px;
@@ -8,10 +8,8 @@ const Habits = styled.section`
     padding-left: 17px;
 `;
 
-const Notice = styled.div`
+export const Notice = styled.div`
     font-size: 18px;
     color: #666666;
     margin-top: 29px;
 `;
-
-export {Habits, Notice};

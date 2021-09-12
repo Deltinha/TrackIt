@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LogIn = styled.div`
+export const SignUpRoute = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,12 +8,10 @@ const LogIn = styled.div`
     top: 68px;
     left: 0;
     
-    & > span {
+    & > a {
         color: #52B6FF;
         font-size: 14px;
         text-decoration: underline;
         margin-top: 25px;
     }
 `;
-
-export {LogIn};

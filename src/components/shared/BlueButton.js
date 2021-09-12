@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 const BlueButton = styled.button`
-    background-color: #52B6FF;
+    background-color: #52b6ff;
     border-radius: 4.65px;
     border: none;
     color: white;
     font-weight: 400;
     padding: 0;
-    cursor: pointer;
+
+    opacity: ${({disabled}) => disabled ? '0.7' : '1'};
+
+    cursor: ${({disabled}) => disabled ? 'default' : 'pointer'};
 
     width: ${({size}) => {
         if (size === 'large') {
@@ -19,12 +22,7 @@ const BlueButton = styled.button`
         return '84px';
     }};
 
-    height: ${({size}) => {
-        if (size === 'large') {
-            return '45px';
-        }
-        return '35px';
-    }};
+    height: ${({size}) => size==='large' ? '45px' : '35px'};
 
     font-size: ${({size}) => {
         if (size === 'large') {

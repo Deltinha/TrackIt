@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const HabitCard = styled.div`
+export const Habit = styled.div`
     background-color: white;
     border-radius: 5px;
     position: relative;
@@ -13,6 +13,8 @@ export const HabitCard = styled.div`
         right: 10px;
         top: 11px;
         cursor: pointer;
+        font-size: 15px;
+        color: #666666;
     }
 
     & > span {
