@@ -29,7 +29,10 @@ export default function LogInRoute(){
                 console.log(res.data)
                 history.push('/hoje')
             })
-            .catch(()=>alert('Falha no login'))
+            .catch(()=>{
+                setDisabledInputs(false);
+                alert('Falha no login');
+            })
     }
 
     return (
