@@ -1,7 +1,7 @@
 import * as S from './NewHabitStyled';
 import { TextInput } from "../../components/shared/TextInput";
 import { BlueButton } from '../../components/shared/BlueButton';
-import WeekCheckboxes from '../../components/shared/WeekCheckboxes';
+import WeekCheckboxes from './WeekCheckboxes';
 import { useState } from 'react/cjs/react.development';
 import { postHabit } from '../../services/trackit-api';
 import { useContext } from 'react';

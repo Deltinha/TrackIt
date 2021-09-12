@@ -15,36 +15,58 @@ export const Habit = styled.div`
         flex-direction: column;
     }
 
-    & .habit-info .habit-name {
+    & .habit-info__name {
         font-size: 20px;
         margin-bottom: 7px;
     }
 
-    & .habit-info .current-streak,
-    & .habit-info .record-streak {
+    & .habit-info__current-sequence,
+    & .habit-info__highest-sequence {
         font-size: 13px;
-    }
-
-    & > .checkbox {
-        
     }
 `;
 
 export const Checkbox = styled.div`
         min-width: 69px;
         height: 69px;
-        box-sizing: border-box;
-        border-radius: 5px;
         position: relative;
-        background-color: ${({concluded})=>concluded ? '#8FC549' : '#ebebeb'};
-        cursor: ${({concluded})=>concluded ? 'default' : 'pointer'};;
+        border-radius: 5px;
+        
+        /* background-color: ${({concluded})=>concluded ? '#8FC549' : '#ebebeb'};
+        cursor: ${({concluded})=>concluded ? 'default' : 'pointer'}; */
+
+        input {
+            margin: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            width: 69px;
+            height: 69px;
+            opacity: 0;
+            
+        }
+
+        input ~ div {
+            background-color: #ebebeb;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s ease;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input:checked ~ div {
+            background-color: #8fc549;
+            display: flex;
+        }
+
+
 
         svg {
             color: white;
             font-size: 50px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
         }
 `;

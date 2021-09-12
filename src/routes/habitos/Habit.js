@@ -1,6 +1,6 @@
 import * as S from './HabitStyled';
 import {GoTrashcan} from 'react-icons/go';
-import WeekCheckboxes from '../../components/shared/WeekCheckboxes';
+import WeekCheckboxes from './WeekCheckboxes';
 import { deleteHabit } from '../../services/trackit-api';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
