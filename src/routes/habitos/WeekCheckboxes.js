@@ -2,6 +2,7 @@ import * as S from './WeekCheckboxesStyled';
 
 export default function WeekCheckboxes({habitDays, setHabitDays, disabled}){
 
+    console.log(habitDays)
     let checkedDays = [...habitDays];
     const daysInitials = ['D','S','T','Q','Q','S','S'];
 
@@ -27,7 +28,7 @@ export default function WeekCheckboxes({habitDays, setHabitDays, disabled}){
                     <input
                     onChange={(e)=>pushDays(index, e.target.checked)}
                     type='checkbox' 
-                    defaultChecked={disabled && habitDays.includes(index)}
+                    defaultChecked={habitDays.includes(index)}
                     disabled={disabled}/>
                     <div>
                         <span>{day}</span>

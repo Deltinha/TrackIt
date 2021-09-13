@@ -1,7 +1,22 @@
 import * as S from './HabitStyled';
 import {GoCheck} from 'react-icons/go';
+import { postCheckHabit, postUnCheckHabit } from '../../services/trackit-api';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
-export default function Habit({habitData}){
+export default function Habit({habitData, refreshList, calculateDonePct}){
+    const {token} = useContext(UserContext);    
+    
+    function checkHabit(){
+        postCheckHabit(habitData.id, token);
+        refreshList();
+    }
+
+    function unCheckHabit(){
+        postUnCheckHabit(habitData.id, token);
+        refreshList();
+    }
+
 
     return (
         <S.Habit>
@@ -26,7 +41,11 @@ export default function Habit({habitData}){
             <S.Checkbox>
                     <input
                     type='checkbox' 
-                    defaultChecked={habitData.done}/>
+                    defaultChecked={habitData.done}
+                    onChange={(e)=>e.target.checked ? 
+                        checkHabit()
+                        : 
+                        unCheckHabit()}/>
                     <div>
                         <GoCheck />
                     </div>

@@ -20,6 +20,6 @@ export const SectionTitle = styled.h1`
 
 export const HabitsConcludedText = styled.span`
     font-size: 18px;
-    color: ${({concludedPct})=> ((concludedPct > 0) ? '#8fc549' : '#bababa')};
+    color: ${({donePct})=> ((donePct > 0) ? '#8fc549' : '#bababa')};
 `;
 

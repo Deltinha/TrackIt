@@ -31,3 +31,13 @@ export function getTodayHabits(config){
     const promise = axios.get(`${BASE_URL}/habits/today`, config);
     return promise;
 }
+
+export function postCheckHabit(habitID, config){
+    const promise = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${habitID}/check`, {}, config);
+    return promise;
+}
+
+export function postUnCheckHabit(habitID, config){
+    const promise = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${habitID}/uncheck`, {}, config);
+    return promise;
+}

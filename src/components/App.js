@@ -16,7 +16,7 @@ import { getHabits } from '../services/trackit-api';
 export default function App() {
   const [profileImage, setProfileImage] = useState('');
   const [token, setToken] = useState('');
-  
+  const [donePct,setDonePct] = useState(0);
 
   return (
     <S.App>
@@ -33,14 +33,17 @@ export default function App() {
 
               <>
                 <TopNavbar />
-                <BottomNavigation />
+                <BottomNavigation 
+                donePct={donePct}/>
       
                 <Route path='/habitos' exact>
                   <HabitsRoute />
                 </Route>
 
                 <Route path='/hoje' exact>
-                  <TodayRoute />
+                  <TodayRoute 
+                  setDonePct={setDonePct}
+                  donePct={donePct}/>
                 </Route>
               </>
             </Switch>

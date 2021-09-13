@@ -1,18 +1,18 @@
 import * as S from './HabitsRouteStyled';
-import SectionHeader from "../../components/shared/SectionHeader";
 import NewHabit from './NewHabit';
 import Habit from './Habit';
 import { useContext, useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import { getAllHabits } from '../../services/trackit-api';
 import { UserContext } from '../../contexts/UserContext';
+import HabitsHeader from './HabitsHeader';
 
 export default function HabitsRoute (){
-    let concludedPct = undefined;
-    
     const [creatingHabit, setCreatingHabit] = useState(false);
     const [habits, setHabits] = useState([]);
     const {token} = useContext(UserContext);
+    const [habitName, setHabitName] = useState('');
+    const [habitDays, setHabitDays] = useState([]);
 
     function refreshList(){
       getAllHabits(token)
@@ -23,18 +23,18 @@ export default function HabitsRoute (){
 
     useEffect(()=>refreshList(),[]);
 
-    concludedPct = 22
     return (
         <S.HabitsRoute>
-            <SectionHeader
-            concludedPct={concludedPct}
-            setCreatingHabit={setCreatingHabit}>
-                Meus hábitos
-            </SectionHeader>
+            <HabitsHeader 
+            setCreatingHabit={setCreatingHabit}/>
 
             {
                 creatingHabit ?
                 <NewHabit 
+                habitName={habitName}
+                setHabitName={setHabitName}
+                habitDays={habitDays}
+                setHabitDays={setHabitDays}
                 setCreatingHabit={setCreatingHabit}
                 refreshList={refreshList}/>
                 :

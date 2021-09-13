@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { Link } from 'react-router-dom';
 import * as S from './BottomNavigationStyled';
 
-export default function BottomNavigation() {
-    const pc = 64;
+export default function BottomNavigation({donePct}) {
+    
+    
     
     return (
         <S.BottomNavigation>
@@ -20,7 +22,7 @@ export default function BottomNavigation() {
             <Link to='/hoje'>
                 <S.ProgressBarContainer>
                     <CircularProgressbar 
-                    value={pc} 
+                    value={donePct} 
                     text='Hoje'
                     background
                     backgroundPadding={6}

@@ -9,10 +9,10 @@ import { UserContext } from '../../contexts/UserContext';
 import Loader from 'react-loader-spinner';
 
 
-export default function NewHabit({refreshList, setCreatingHabit}){
+export default function NewHabit({refreshList, setCreatingHabit, habitName, setHabitName, habitDays, setHabitDays}){
     
-    const [habitName, setHabitName] = useState('');
-    const [habitDays, setHabitDays] = useState([]);
+    
+    
     const [disabledInputs, setDisabledInputs] = useState(false);
     const {token} = useContext(UserContext);
 
@@ -22,20 +22,24 @@ export default function NewHabit({refreshList, setCreatingHabit}){
     };
 
     function sendNewHabit(){
-        console.log(body);
-        setDisabledInputs(true);
-        postHabit(body, token)
-            .then(()=>{
-                setHabitName('');
-                setHabitDays([]);
-                setDisabledInputs(false);
-                setCreatingHabit(false);
-                refreshList();
-            })
-            .catch(()=>{
-                setDisabledInputs(false);
-                alert('Erro na criação');
-            });
+        if (habitDays.length > 0) {
+            setDisabledInputs(true);
+            postHabit(body, token)
+                .then(()=>{
+                    setHabitName('');
+                    setHabitDays([]);
+                    setDisabledInputs(false);
+                    setCreatingHabit(false);
+                    refreshList();
+                })
+                .catch(()=>{
+                    setDisabledInputs(false);
+                    alert('Erro na criação');
+                });
+        }
+        else{
+            alert('Selecione ao menos um dia da semana');
+        }
     }
 
     return (
