@@ -8,7 +8,7 @@ export default function SectionHeader({donePct}){
 
     function concludedText(){
         if (donePct > 0) {
-            return `${donePct}% dos hábitos concluídos`;
+            return `${donePct.toFixed(0)}% dos hábitos concluídos`;
         }
         if (donePct === 0) {
             return 'Nenhum hábito concluído ainda';

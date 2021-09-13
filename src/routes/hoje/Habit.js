@@ -4,9 +4,9 @@ import { postCheckHabit, postUnCheckHabit } from '../../services/trackit-api';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 
-export default function Habit({habitData, refreshList, calculateDonePct}){
-    const {token} = useContext(UserContext);    
-    
+export default function Habit({habitData, refreshList}){
+    const {token} = useContext(UserContext);
+
     function checkHabit(){
         postCheckHabit(habitData.id, token);
         refreshList();
@@ -26,15 +26,16 @@ export default function Habit({habitData, refreshList, calculateDonePct}){
                 </span>
                 <span className='habit-info__current-sequence'>
                     Sequência atual:&nbsp;
-                    <span className='habit-info__current-sequence__color'>
+                    <S.CurrentSequenceDays sequenceGreenText={habitData.done}>
                         {habitData.currentSequence} dias
-                    </span>
+                    </S.CurrentSequenceDays>
                 </span>
                 <span className='habit-info__highest-sequence'>
                     Seu recorde:&nbsp;
-                    <span className='habit-info__highest-sequence__color'>
+                    <S.HighestSequenceDays 
+                    sequenceGreenText={((habitData.currentSequence === habitData.highestSequence) && habitData.highestSequence > 0)}>
                         {habitData.highestSequence} dias
-                    </span>
+                    </S.HighestSequenceDays>
                 </span>
             </div>
 

@@ -27,8 +27,7 @@ export default function TodayRoute({setDonePct, donePct}){
                 doneHabitsQty++;
             }
         });
-        console.log(habitsData)
-        console.log(doneHabitsQty);
+        
         if (habitsData.length > 0) {
             setDonePct((doneHabitsQty/habitsData.length)*100);    
         }

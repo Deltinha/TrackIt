@@ -9,15 +9,17 @@ export const Habit = styled.div`
     border-radius: 5px;
     padding: 13px;
     margin-bottom: 10px;
+    color: #666666;
 
     & .habit-info{
         display: flex;
         flex-direction: column;
     }
 
-    & .habit-info__name {
+    & .habit-info_name {
         font-size: 20px;
         margin-bottom: 7px;
+        display: inline-block;
     }
 
     & .habit-info__current-sequence,
@@ -26,15 +28,20 @@ export const Habit = styled.div`
     }
 `;
 
+export const CurrentSequenceDays = styled.span`
+    color: ${({sequenceGreenText})=> sequenceGreenText ? '#8FC549' : '#666'};
+`;
+
+export const HighestSequenceDays = styled.span`
+    color: ${({sequenceGreenText})=> sequenceGreenText ? '#8FC549' : '#666'};
+`;
+
 export const Checkbox = styled.div`
         min-width: 69px;
         height: 69px;
         position: relative;
         border-radius: 5px;
         
-        /* background-color: ${({concluded})=>concluded ? '#8FC549' : '#ebebeb'};
-        cursor: ${({concluded})=>concluded ? 'default' : 'pointer'}; */
-
         input {
             margin: 0;
             position: absolute;
