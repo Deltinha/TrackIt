@@ -7,10 +7,10 @@ import TopNavbar from './TopNavbar';
 import BottomNavigation from './BottomNavigation';
 import HabitsRoute from '../routes/habitos/HabitsRoute';
 import TodayRoute from '../routes/hoje/TodayRoute';
-import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import { getHabits } from '../services/trackit-api';
+import HistoryRoute from '../routes/historico/HistoryRoute';
 
 
 export default function App() {
@@ -44,6 +44,10 @@ export default function App() {
                   <TodayRoute 
                   setDonePct={setDonePct}
                   donePct={donePct}/>
+                </Route>
+
+                <Route path='/historico' exact>
+                  <HistoryRoute />
                 </Route>
               </>
             </Switch>
